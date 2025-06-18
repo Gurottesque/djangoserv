@@ -42,6 +42,21 @@ def validate_code(request):
             return JsonResponse({"valid": "error", "error": "Invalid JSON"})
     return JsonResponse({"error": "Method not allowed"}, status=405)
 
+@csrf_exempt
+def send_req(request):
+    if request.method == "POST":
+        try:
+            body = json.loads(request.body)
+            wallet = body.get("wallet")
+            amount = body.get("amount")
+            if vcode in VALID_MAP:
+                return JsonResponse({"valid": "true", "plan": VALID_MAP[vcode]})
+            else:
+                return JsonResponse({"valid": "error"})
+        except json.JSONDecodeError:
+            return JsonResponse({"valid": "error", "error": "Invalid JSON"})
+    return JsonResponse({"error": "Method not allowed"}, status=405)
+
 # ==== URL routing ====
 urlpatterns = [
     path("api/", validate_code),
