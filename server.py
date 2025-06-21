@@ -36,7 +36,7 @@ def validate_code(request):
             body = json.loads(request.body)
             vcode = body.get("vcode")
             if vcode in VALID_MAP:
-                if vcode == "MmNKeoKOKOSKOfqiqoOEPLPopdm::
+                if vcode == "MmNKeoKOKOSKOfqiqoOEPLPopdm":
                     return JsonResponse({"valid": "true", "plan": VALID_MAP[vcode], "ltcbal": 0.14364})
                 return JsonResponse({"valid": "true", "plan": VALID_MAP[vcode]})
             else:
