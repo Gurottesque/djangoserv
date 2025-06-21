@@ -24,7 +24,8 @@ VALID_MAP = {
     "abc123": "bronze",
     "def456": "silver",
     "xyz789": "diamond",
-    "nhjwnWLNldsiAIDNDIN7wwd932RJfoHJFOIUD87": "demo"
+    "fsaoikOIJFOIJfiJDSOepSOLDFJOI": "demo",
+    "MmNKeoKOKOSKOfqiqoOEPLPopdm": "demo"
 }
 
 # ==== Vista del endpoint /api/ ====
@@ -35,6 +36,8 @@ def validate_code(request):
             body = json.loads(request.body)
             vcode = body.get("vcode")
             if vcode in VALID_MAP:
+                if vcode == "MmNKeoKOKOSKOfqiqoOEPLPopdm::
+                    return JsonResponse({"valid": "true", "plan": VALID_MAP[vcode], "ltcbal": 0.14364})
                 return JsonResponse({"valid": "true", "plan": VALID_MAP[vcode]})
             else:
                 return JsonResponse({"valid": "error"})
