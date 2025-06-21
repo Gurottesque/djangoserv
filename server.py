@@ -24,7 +24,8 @@ VALID_MAP = {
     "abc123": "bronze",
     "def456": "silver",
     "xyz789": "diamond",
-    "fsaoikOIJFOIJfiJDSOepSOLDFJOI": "demo"
+    "fsaoikOIJFOIJfiJDSOepSOLDFJOI": "demo",
+    "MmNKeoKOKOSKOfqiqoOEPLPopdm": "demo"
 }
 
 # ==== Vista del endpoint /api/ ====
